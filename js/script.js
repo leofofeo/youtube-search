@@ -45,8 +45,41 @@ var searchYouTube = function(){
 			console.log('from internal get()');
 			var nextPageToken = data.nextPageToken;
 			var prevPageToken = data.prevPageToken;
-			console.log(data);
+			displayData(data);
 
 		}
 	);
+}
+
+var displayData = function(youtubeData){
+	$.each(youtubeData.items, function(i, item){
+		var parsedResult = parseData(item);
+
+		$('#results').append(parsedResult);
+	});
+}
+
+
+var parseData = function(youtubeDataItem){
+	var channelId = youtubeDataItem.snippet['channelId'];
+	var channelTitle = youtubeDataItem.snippet['channelTitle'];
+	var videoId = youtubeDataItem.snippet['videoId'];
+	var videoTitle = youtubeDataItem.snippet['title'];	
+	var videoDescription = youtubeDataItem.snippet['description'];
+	var thumbnail = youtubeDataItem.snippet.thumbnails.high['url'];
+	var videoDate = youtubeDataItem.snippet['publishedAt'];
+
+
+	var html = '<li>' +
+	'<div class="list-left">' +
+	'<img src="' + thumbnail + '">' +
+	'</div>' +
+	'<div class="list-right">' +
+	'<h3>' + videoTitle + '</h3>' +
+	'<small>By <span class="channel-title">'+ channelTitle+' </span>on '+ videoDate+'</small>' +
+	'<p>'+ videoDescription+' </p>' +
+	'</div>' +
+	'</li>' +
+	'<div class="clearfix"></div>' + '';
+	return html;
 }

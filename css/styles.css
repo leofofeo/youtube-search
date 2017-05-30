@@ -30,6 +30,10 @@ header span {
 	color: #dd2826;
 }
 
+li {
+	list-style-type: none;
+}
+
 #search-form {
 	display:block;
 	margin-bottom:15px;
