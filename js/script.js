@@ -95,7 +95,7 @@ var parseData = function(youtubeDataItem){
 	'<img src="' + thumbnail + '">' +
 	'</div>' +
 	'<div class="list-right">' +
-	'<h3><a class="fancybox fancybox.iframe" href="http://www.youtube.com/embed/'+ videoId +'">' + videoTitle + '</a></h3>' +
+	'<h3><a class="fancybox fancybox.iframe" href="https://www.youtube.com/embed/'+ videoId +'">' + videoTitle + '</a></h3>' +
 	'<small>By <span class="channel-title">'+ channelTitle+' </span>on '+ videoDate+'</small>' +
 	'<p>'+ videoDescription+' </p>' +
 	'</div>' +
