@@ -37,18 +37,32 @@ var searchYouTube = function(){
 
 	$.get(
 		'https://www.googleapis.com/youtube/v3/search', {
-		part: 'snippet, id',
-		q: query,
-		type: 'video',
-		key: 'AIzaSyB-WogP-SMI3M6WKTijzpWmpRvZAbWg6Xg'},
-		function(data){
-			console.log('from internal get()');
-			var nextPageToken = data.nextPageToken;
-			var prevPageToken = data.prevPageToken;
-			displayData(data);
+			part: 'snippet, id',
+			q: query,
+			type: 'video',
+			key: 'AIzaSyB-WogP-SMI3M6WKTijzpWmpRvZAbWg6Xg'},
+			function(data){
 
-		}
-	);
+				var nextPageToken = data.nextPageToken;
+				var prevPageToken = data.prevPageToken;
+				displayData(data);
+
+				var buttons = getButtons(prevPageToken, nextPageToken, query);
+				$('#results').append(buttons);
+				var nextBtn = document.getElementById('next-btn');
+				var prevBtn = document.getElementById('prev-btn');
+				nextBtn.addEventListener('click', function(){
+					$(nextBtn).on('click', determinePagination($(nextBtn).attr('id')));	
+				});
+
+				if(prevBtn){
+					prevBtn.addEventListener('click', function(){
+						$(prevBtn).on('click', determinePagination($(prevBtn).attr('id')));	
+					});	
+				}
+			}
+			);
+
 }
 
 var displayData = function(youtubeData){
@@ -82,4 +96,36 @@ var parseData = function(youtubeDataItem){
 	'</li>' +
 	'<div class="clearfix"></div>' + '';
 	return html;
+}
+
+var getButtons = function(prevPageToken, nextPageToken, query){
+	if(!prevPageToken){
+		var btnOutput = '<div class="btn-container">' +
+		'<button id="next-btn" class="pagination-btn btn btn-default" data-token="' + nextPageToken + '" data-query="'+ query +'">' +
+		'Next Page </button></div>';
+	} else {
+		var btnOutput = '<div class="btn-container">' +
+		'<button id="prev-btn" class="pagination-btn btn btn-default" data-token="' + prevPageToken + '" data-query="'+ query +'">' +
+		'Previous Page </button>' + 
+		'<button id="next-btn" class="pagination-btn btn btn-default" data-token="' + nextPageToken + '" data-query="'+ query +'">' +
+		'Next Page </button></div>';
+	}
+
+	return btnOutput;
+}
+
+
+var nextPage = function(){
+	alert('next page!');
+}
+
+var previousPage = function(){}
+
+
+var determinePagination =  function(btnId){
+	if(btnId === 'next-btn'){
+		nextPage();
+	} else {
+		previousPage();
+	}
 }

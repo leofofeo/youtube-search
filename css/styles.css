@@ -55,6 +55,13 @@ header span {
 	opacity:0.9!important;
 }
 
+
+.btn-container {
+	margin-top:20px;
+	display:flex;
+	justify-content: center;
+}
+
 .channel-title {
 	color:#dd2826;
 }
@@ -107,6 +114,10 @@ header span {
 
 .padding {
 	
+}
+
+.pagination-btn {
+	border-radius:15px;
 }
 
 .search-field {
