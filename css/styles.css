@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');
+
+
+* {
+	padding:0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-sarif!important;
+	line-height:1.6em;
+	color:#666;
+	background: #bdc3c7!important;
+	
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+header {
+	padding: 30px 20px;
+	background:#f4f4f4;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	width:100%;
+}
+
+header span {
+	color: #dd2826;
+}
+
+#search-form {
+	display:block;
+	margin-bottom:15px;
+}
+
+#search-btn {
+	filter:alpha(opacity=65);
+	opacity:0.65!important;
+}
+
+#search-btn:hover {
+	filter:alpha(opacity=90);
+	opacity:0.9!important;
+}
+
+.clearfix {
+	clear:both;
+}
+
+.field-container {
+	display:flex;
+	position:relative;
+	width:90%;
+	margin:0;
+}
+
+.main-container {
+	width:90%!important;
+	margin:auto;
+	background: #fff;
+	border-radius:20px;
+	margin-bottom: 100px;
+	padding-right:0!important;
+	padding-left:0!important;
+	
+}
+
+.main-container section {
+	padding:20px;
+	padding-left: 50px!important;
+	padding-right: 50px!important;
+}
+
+
+.padding {
+	
+}
+
+.search-field {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	display:block;
+	width:45%;
+	padding:11px 7px;
+	padding-right:45px;
+	background: #fff;
+	color:#ccc;
+	font-size:1.6em;
+	border: 1px solid #c8c8c8;
+	border-bottom-color: #d2e2e7;
+	-webkit-border-radius: 1px;
+	-moz-border-radius: 1px;
+	border-radius: 1px;
+	-webkit-box-shadow: inset 0 1 px 2px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: inset 0 1 px 2px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 1 px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Navigation Styling */
+
+.navbar {
+	/*background: #34495e!important;*/
+	padding:20px;
+}
+
+
+.navbar-inverse .navbar-nav>li>a {
+	color:#ecf0f1!important;
+	font-size:1.5em;
+}
+
+.navbar .navbar-brand:hover {
+	color:#2980b9!important;
+}
+
+.navbar .navbar-brand {
+	color: #ecf0f1!important;
+	font-size:2.5em;
+}
+
+footer {
+	background:#333;
+	color:white;
+	height:70px;
+	width:100%!important;
+}
+
+footer p {
+	padding-top:15px;
+	padding-left:auto;
+	padding-right: auto;
+	margin:auto;
+	font-weight:bold;
+	font-family: monospace;
+}
+
+footer a:link {
+	text-decoration: none;
+	color:#2980b9!important;
+}
+
+/*footer a {
+	color:#fff;
+}
+*/
+footer a:hover {
+	color:#fff!important;
+}

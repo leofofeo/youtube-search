@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>YouTube Search</title>
+
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <!-- Bootstrap -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <body>
+       <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Portfolio</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="https://leofofeo.github.io#about-me">About</a></li>
+              <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-hashpopup="true" aria-expanded="false">Portfolio <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="https://leofofeo.github.io#my-work">Preview</a></li>
+                  <li><a href="https://leofofeo.github.io/portfolio">Full Portfolio</a></li>
+                  <!-- <li><a href="#">
+                    Resume
+                  </a></li> -->
+                </ul>
+              </li>
+              <li><a href="https://leofofeo.github.io#contact">Contact</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
+      <div class="container main-container"> <!-- Begin Body Container No Margin-->
+        <header>
+          <h1>
+            Search <span>YouTube</span>
+          </h1>
+          <p>Search all YouTube videos and watch them without leaving the site</p>
+        </header>
+        <section>
+          <form id="search-form" name="search-form" onsubmit="return search()">
+            <div class="field-container">
+              <input type="search" class="search-field" id="query" placeholder="Search YouTube...">
+              <button type="submit" name="search-btn" id="search-btn" class="btn btn-primary">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </form>
+
+          <ul id="results"></ul>
+          <div id="buttons"></div>
+        </section>
+
+
+      </div> <!-- End Container No Margin-->
+
+
+      <footer class="text-center">
+        <a href="https://leofofeo.github.io">
+          <p>
+            A Leo Fo Feo Production
+          </p> 
+          <i class="fa fa-beer" aria-hidden="true"></i> 
+        </a>
+      </footer>
+
+      <!--jQuery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+      <script type="text/javascript" src="js/script.js"></script>
+
+      <!-- Bootstrap JS -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    </body>
+    </html>
