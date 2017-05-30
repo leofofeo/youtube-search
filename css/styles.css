@@ -30,8 +30,14 @@ header span {
 	color: #dd2826;
 }
 
-li {
+#results {
+	padding-right:20px;
+}
+
+#results li {
 	list-style-type: none;
+	padding: 10px 0;
+	border-bottom: 1px #ccc dotted;
 }
 
 #search-form {
@@ -49,6 +55,10 @@ li {
 	opacity:0.9!important;
 }
 
+.channel-title {
+	color:#dd2826;
+}
+
 .clearfix {
 	clear:both;
 }
@@ -58,6 +68,23 @@ li {
 	position:relative;
 	width:90%;
 	margin:0;
+}
+
+.list-left {
+	float:left;
+	width:20%;
+}
+
+.list-left img {
+	width:100%;
+	padding:3px;
+	border: solid #ccc 1px;
+}
+
+.list-right {
+	float:right;
+	width: 75%;
+
 }
 
 .main-container {
