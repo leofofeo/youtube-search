@@ -1,6 +1,5 @@
 //JS and jQuery for RQ
 $('document').ready(function(){
-	console.log('document ready');
 
 });
 
@@ -84,19 +83,19 @@ var displayData = function(youtubeData){
 var parseData = function(youtubeDataItem){
 	var channelId = youtubeDataItem.snippet['channelId'];
 	var channelTitle = youtubeDataItem.snippet['channelTitle'];
-	var videoId = youtubeDataItem.snippet['videoId'];
+	var videoId = youtubeDataItem.id['videoId'];
 	var videoTitle = youtubeDataItem.snippet['title'];	
 	var videoDescription = youtubeDataItem.snippet['description'];
 	var thumbnail = youtubeDataItem.snippet.thumbnails.high['url'];
 	var videoDate = youtubeDataItem.snippet['publishedAt'];
 
-
+	console.log(youtubeDataItem);
 	var html = '<li>' +
 	'<div class="list-left">' +
 	'<img src="' + thumbnail + '">' +
 	'</div>' +
 	'<div class="list-right">' +
-	'<h3>' + videoTitle + '</h3>' +
+	'<h3><a class="fancybox fancybox.iframe" href="http://www.youtube.com/embed/'+ videoId +'">' + videoTitle + '</a></h3>' +
 	'<small>By <span class="channel-title">'+ channelTitle+' </span>on '+ videoDate+'</small>' +
 	'<p>'+ videoDescription+' </p>' +
 	'</div>' +
