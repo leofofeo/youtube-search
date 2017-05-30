@@ -118,6 +118,7 @@ header span {
 
 .pagination-btn {
 	border-radius:15px;
+	font-weight:bold;
 }
 
 .search-field {

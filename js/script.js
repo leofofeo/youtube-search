@@ -26,31 +26,38 @@ $('#query').on('blur', function(){
 
 $('#search-form').submit(function(e){
 	e.preventDefault();
-	searchYouTube();
+	var query = $('#query').val();
+	var token = '';
+	searchYouTube(token, query);
+
 });
 
 
-var searchYouTube = function(){
+var searchYouTube = function(token, query){
 	$('#results').html('');
 	$('#buttons').html('');
-	var query = $('#query').val();
 
 	$.get(
 		'https://www.googleapis.com/youtube/v3/search', {
 			part: 'snippet, id',
 			q: query,
+			pageToken: token,
 			type: 'video',
 			key: 'AIzaSyB-WogP-SMI3M6WKTijzpWmpRvZAbWg6Xg'},
 			function(data){
-
+			
 				var nextPageToken = data.nextPageToken;
-				var prevPageToken = data.prevPageToken;
+				if(data.prevPageToken){
+					var prevPageToken = data.prevPageToken;
+				}
 				displayData(data);
 
 				var buttons = getButtons(prevPageToken, nextPageToken, query);
 				$('#results').append(buttons);
+
 				var nextBtn = document.getElementById('next-btn');
 				var prevBtn = document.getElementById('prev-btn');
+				
 				nextBtn.addEventListener('click', function(){
 					$(nextBtn).on('click', determinePagination($(nextBtn).attr('id')));	
 				});
@@ -99,16 +106,17 @@ var parseData = function(youtubeDataItem){
 }
 
 var getButtons = function(prevPageToken, nextPageToken, query){
+
 	if(!prevPageToken){
 		var btnOutput = '<div class="btn-container">' +
 		'<button id="next-btn" class="pagination-btn btn btn-default" data-token="' + nextPageToken + '" data-query="'+ query +'">' +
-		'Next Page </button></div>';
+		'<i class="fa fa-angle-double-right "></i> </button></div>';
 	} else {
 		var btnOutput = '<div class="btn-container">' +
 		'<button id="prev-btn" class="pagination-btn btn btn-default" data-token="' + prevPageToken + '" data-query="'+ query +'">' +
-		'Previous Page </button>' + 
+		'<i class="fa fa-angle-double-left"></i> </button>' + 
 		'<button id="next-btn" class="pagination-btn btn btn-default" data-token="' + nextPageToken + '" data-query="'+ query +'">' +
-		'Next Page </button></div>';
+		'<i class="fa fa-angle-double-right"></i> </button></div>';
 	}
 
 	return btnOutput;
@@ -116,10 +124,20 @@ var getButtons = function(prevPageToken, nextPageToken, query){
 
 
 var nextPage = function(){
-	alert('next page!');
+
+	var pageToken = $('#next-btn').attr('data-token');
+	var query = $('#next-btn').attr('data-query');
+
+	searchYouTube(pageToken, query);
+	
 }
 
-var previousPage = function(){}
+var previousPage = function(){
+	var pageToken = $('#prev-btn').attr('data-token');
+	var query = $('#prev-btn').attr('data-query');
+
+	searchYouTube(pageToken, query);
+}
 
 
 var determinePagination =  function(btnId){
